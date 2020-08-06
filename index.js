@@ -5,7 +5,6 @@
  * 
  * @instructions
  * Implement a higher-order function called `processFirstItem`.
- * It takes two arguments:
  * @param stringList an array of strings.
  * @param callback function that takes a string as its argument.
  * @returns the result of invoking `callback` with the FIRST element in `stringList`.
@@ -17,7 +16,7 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
-
+// console.log(processFirstItem(["foo", "bar"], (str) => str + str))
 // ⭐️ Example Challenge END ⭐️
 
 
@@ -27,11 +26,15 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ *  // the "let count=0" is in the function in counter1, meaning each time it is invoked, it will restart to 0, in "counter2", the "let count=0" is outside the function and it will increment by 1 each time the function is invoked. 
  * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * // I feel that counter1 is a closure as "count" can only be accessed by invoking the function "counterMaker". 
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * 
+ * // see my response in answer 1.  
 */
 
 // counter1 code
@@ -56,11 +59,12 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  randNum = Math.floor(Math.random() * 3 );
+  return randNum;
 }
+console.log("The answer to task 2 is " + inning());
+console.log("");
 
 /* Task 3: finalScore()
 
@@ -74,13 +78,25 @@ finalScore(inning, 9) might return:
   "Away": 5,
 }
 
-*/ 
+*/
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(callBack,number){
+  let home=0;
+  let away=0;
+  for (let i =0; i<=number; i++){
+    home += callBack();
+  }
+  for(let j=0; j<=number; j++){
+    away += callBack();
+  }
+  return {
+    "Home": home,
+    "Away": away
+  }
 }
+console.log("The answer to Task 3 " , finalScore(inning,9));
+console.log("");
+
 
 /* Task 4: 
 
