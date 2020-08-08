@@ -53,7 +53,7 @@ let count = 0;
 function counter2() {
   return count++;
 }
-
+console.log("");
 
 /* Task 2: inning() 
 
@@ -65,6 +65,10 @@ function inning(){
 }
 console.log("The answer to task 2 is " + inning());
 console.log("");
+
+function awayInning(){
+  return Math.floor(Math.random() * 3);
+}
 
 /* Task 3: finalScore()
 
@@ -106,7 +110,7 @@ Create a function called `scoreboard` that accepts the following parameters:
 (2) Callback function `inning`
 (3) A number of innings
 
-and returns the score at each pont in the game, like so:
+and returns the score at each point in the game, like so:
 1st inning: awayTeam - homeTeam
 2nd inning: awayTeam - homeTeam
 3rd inning: awayTeam - homeTeam
@@ -119,8 +123,29 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(callBack1, callBack2, inningNum) {
+  let homeScores = 0;
+  let awayScores = 0;
+  
+  for (let i = 0; i <= inningNum; i++){
+    homeScores += callBack1(callBack2);
+    awayScores += callBack1(callBack2);
+    
+    if (i == 1){
+      console.log(`${i}st inning: ${awayScores} - ${homeScores}`)
+    }
+    else if (i == 2){
+      console.log(`${i}nd inning: ${awayScores} - ${homeScores}`)
+    }
+    else if (i == 3){
+      console.log(`${i}rd inning: ${awayScores} - ${homeScores}`)
+    }
+    else {
+      console.log (`${i}th inning: ${awayScores} - ${homeScores}`)
+    }
+  }
+  return `Final Score: ${awayScores} - ${homeScores}`
 }
 
+console.log(scoreboard(inning, awayInning, 9))
 
