@@ -26,17 +26,21 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- *  // the "let count=0" is in the function in counter1, meaning each time it is invoked, it will restart to 0, in "counter2", the "let count=0" is outside the function and it will increment by 1 each time the function is invoked. 
+ *   
  * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
- * // I feel that counter1 is a closure as "count" can only be accessed by invoking the function "counterMaker". 
+ * // 
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  * 
- * // see my response in answer 1.  
+ * //  
 */
-
+console.log("Task 1a answer is -> the let count=0 is in the function in counter1, meaning each time it is invoked, it will restart to 0, in counter2, the let count=0 is outside the function and it will increment by 1 each time the function is invoked.")
+console.log("")
+console.log("Task 1b answer is -> I feel that counter1 is a closure as count can only be accessed by invoking the function counterMaker. ")
+console.log("")
+console.log("Task 1c answer is -> see my response in answer 1. ")
 // counter1 code
 function counterMaker() {
   let count = 0;
